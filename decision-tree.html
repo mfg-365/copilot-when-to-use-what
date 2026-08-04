@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When to Use What · Copilot — Decision Tree</title>
+<meta name="description" content="A simple decision tree for choosing a Microsoft Copilot surface: Chat, Cowork, Code, Microsoft Scout, or a custom agent.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=1">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Decision tree</p>
+    <h1>Which Copilot surface should I use?</h1>
+    <p>Work top to bottom. Take the first branch that fits — the tree is ordered so the most autonomous,
+      highest-commitment options are ruled in only when they're genuinely needed.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- linear decision flow -->
+    <div class="tree">
+
+      <div class="tnode">
+        <div class="q">1 &nbsp;Am I building or changing software?</div>
+        <div class="hint">Writing code, automations-as-code, apps, scripts, data pipelines.</div>
+        <div class="tbranch">
+          <div class="tyes" style="flex:0 0 auto">
+            <span class="tlabel yes">Yes</span>
+            <a class="tout out-code" href="code.html"><span class="em">&#128187;</span><span><strong>Copilot Code</strong><span>Natural-language software building, local or cloud</span></span></a>
+          </div>
+          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+        </div>
+      </div>
+
+      <div class="tnode">
+        <div class="q">2 &nbsp;Should it run on its own — on a schedule, or always-on to manage my day?</div>
+        <div class="hint">Runs while you're away, reacts to events (new email/message), coordinates across time, &ldquo;multi-player&rdquo; so others can interact with it.</div>
+        <div class="tbranch">
+          <div class="tyes" style="flex:0 0 auto">
+            <span class="tlabel yes">Yes</span>
+            <a class="tout out-scout" href="scout.html"><span class="em">&#129302;</span><span><strong>Microsoft Scout</strong><span>Always-on cloud agent + desktop companion</span></span></a>
+          </div>
+          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+        </div>
+      </div>
+
+      <div class="tnode">
+        <div class="q">3 &nbsp;Is this a repeatable capability many people will reuse — needing set knowledge, actions &amp; governance?</div>
+        <div class="hint">The same workflow again and again, shared with a team, with defined sources, guardrails and permissions.</div>
+        <div class="tbranch">
+          <div class="tyes" style="flex:0 0 auto">
+            <span class="tlabel yes">Yes</span>
+            <a class="tout out-agent" href="custom-agents.html"><span class="em">&#129513;</span><span><strong>Consider a Custom Agent</strong><span>Agent Builder or Copilot Studio</span></span></a>
+          </div>
+          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+        </div>
+      </div>
+
+      <div class="tnode">
+        <div class="q">4 &nbsp;Does one task need several artifacts, or multiple steps across M365 systems?</div>
+        <div class="hint">e.g. &ldquo;pull emails + calendar + files into a briefing doc, an Excel overview, and a client-ready deck.&rdquo; Actions you approve (send, post, schedule).</div>
+        <div class="tbranch">
+          <div class="tyes" style="flex:0 0 auto">
+            <span class="tlabel yes">Yes</span>
+            <a class="tout out-cowork" href="cowork.html"><span class="em">&#129309;</span><span><strong>Copilot Cowork</strong><span>Multi-artifact, multi-step, you approve actions</span></span></a>
+          </div>
+          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+        </div>
+      </div>
+
+      <div class="tnode">
+        <div class="q">5 &nbsp;Otherwise — find, summarize, draft or analyze one thing, right now.</div>
+        <div class="hint">The default. Fast, you-in-the-loop, grounded in the web and your Work IQ.</div>
+        <div class="tbranch">
+          <div class="tyes">
+            <span class="tlabel yes">Use this</span>
+            <a class="tout out-chat" href="chat.html"><span class="em">&#128172;</span><span><strong>M365 Copilot Chat</strong><span>Then pick a mode &darr;</span></span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout tip" style="max-width:760px;margin:26px auto 0">
+      <h4>Inside Chat — which mode?</h4>
+      <p><strong>Search</strong> for a company/web fact &middot; <strong>Notebook</strong> to ground a reusable working set &middot;
+        <strong>Create</strong> for images &amp; visual content &middot; <strong>Researcher</strong> agent for deep multi-source research &middot;
+        <strong>Analyst</strong> agent for data reasoning &amp; analysis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- quick chooser -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Quick chooser</p>
+      <h2>Prefer to jump by what you're trying to do?</h2>
+    </div>
+    <div class="chooser">
+      <div class="chip-q">
+        <h4>&#128269; I need a fact or a quick draft</h4>
+        <a href="chat.html">&rarr; Copilot Chat (Search / Create)</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#128218; Deep research across many sources</h4>
+        <a href="chat.html#agents">&rarr; Researcher agent in Chat</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#128202; Reason over data / analysis</h4>
+        <a href="chat.html#agents">&rarr; Analyst agent in Chat</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#129534; Prep for a meeting (docs + deck + Excel)</h4>
+        <a href="cowork.html">&rarr; Copilot Cowork</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#9200; Run this every Monday automatically</h4>
+        <a href="scout.html">&rarr; Microsoft Scout (or Cowork scheduled prompt)</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#128736; Build an app or script</h4>
+        <a href="code.html">&rarr; Copilot Code</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#128101; A reusable tool for my whole team</h4>
+        <a href="custom-agents.html">&rarr; Consider a Custom Agent</a>
+      </div>
+      <div class="chip-q">
+        <h4>&#129300; Still deciding</h4>
+        <a href="compare.html">&rarr; See the full comparison</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/nav.js?v=1"></script>
+</body>
+</html>

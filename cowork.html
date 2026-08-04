@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When to Use What · Copilot — Copilot Cowork</title>
+<meta name="description" content="When to use Microsoft 365 Copilot Cowork: multi-artifact, multi-step tasks across Microsoft 365. Light, Medium and Heavy task types, credits, skills and scheduled prompts.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=1">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Surface &middot; Agentic, you approve actions</p>
+    <h1>Copilot Cowork</h1>
+    <p>Describe a task in natural language and Cowork <em>does the work</em> across Microsoft 365 — drafting emails,
+      scheduling meetings, creating documents, posting in Teams and managing files. It creates multiple artifacts in
+      one task and takes actions only after you approve them.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#tiers">Light &middot; Medium &middot; Heavy</a>
+      <a class="btn btn-ghost" href="#video">Watch it work</a>
+    </div>
+  </div>
+</section>
+
+<!-- when to use / avoid -->
+<section class="section">
+  <div class="container">
+    <div class="wu">
+      <div class="box good">
+        <h4>&#9989; Reach for Cowork when&hellip;</h4>
+        <ul>
+          <li>One request should yield <strong>several artifacts</strong> (e.g. a brief + an Excel + a deck)</li>
+          <li>It's a <strong>multi-step process across systems</strong> — email, calendar, files, Teams</li>
+          <li>You want it to <strong>take actions</strong> (send, post, schedule) with your approval</li>
+          <li>You want a recurring task to run on a <strong>schedule</strong> or on an event trigger</li>
+          <li>You need deep research compiled into finished deliverables</li>
+        </ul>
+      </div>
+      <div class="box avoid">
+        <h4>&#9940; Use something else when&hellip;</h4>
+        <ul>
+          <li>You just need a quick answer or one draft &rarr; <a href="chat.html">Chat</a></li>
+          <li>It should run always-on and coordinate your day &rarr; <a href="scout.html">Scout</a></li>
+          <li>You're building software &rarr; <a href="code.html">Code</a></li>
+          <li>The same workflow is reused org-wide &rarr; <a href="custom-agents.html">Custom agent</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout warn">
+      <h4>Cowork works in the cloud, with your approval</h4>
+      <p>Cowork acts across OneDrive, SharePoint, Outlook and Teams — <em>not</em> your local device — and asks before
+        any sensitive action (send, post, schedule). Always review the approval dialog: recipients, content, timing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- task tiers -->
+<section class="section alt" id="tiers">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Cowork task types</p>
+      <h2>From quick recurring wins to deep, multi-output analysis</h2>
+      <p>Tasks scale by <strong>number of sources</strong>, <strong>time frame</strong>, and <strong>deliverables</strong>.
+        That scale also drives the estimated credits a task consumes.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card tier light">
+        <h3>Light tasks</h3>
+        <p>A handful of knowledge sources and light reasoning — like a summary — usually one short deliverable.</p>
+        <ul>
+          <li>Few sources</li>
+          <li>Light reasoning</li>
+          <li>1 or fewer outputs</li>
+        </ul>
+        <div class="prompt-ex">&ldquo;Create a weekly status update for my team that runs every Monday — including my
+          top-of-mind priorities and a short list of key executive meetings pulled from my calendar. Save as a draft.&rdquo;</div>
+        <div class="credits">Est. credits <b>100&ndash;300</b></div>
+      </div>
+      <div class="card tier medium">
+        <h3>Medium tasks</h3>
+        <p>Many sources over varying timeframes, structured reasoning, and multiple deliverables.</p>
+        <ul>
+          <li>Many sources</li>
+          <li>Structured reasoning</li>
+          <li>2+ outputs</li>
+        </ul>
+        <div class="prompt-ex">&ldquo;Help me prepare for a customer meeting by pulling relevant emails, calendar items
+          and recent files into a briefing doc based on our template, an Excel overview of their sales and trends, and a
+          client-ready presentation.&rdquo;</div>
+        <div class="credits">Est. credits <b>300&ndash;700</b></div>
+      </div>
+      <div class="card tier heavy">
+        <h3>Heavy tasks</h3>
+        <p>Deep analysis and broad source aggregation over long time frames, generating many outputs.</p>
+        <ul>
+          <li>Broad aggregation</li>
+          <li>Deep reasoning</li>
+          <li>Many outputs</li>
+        </ul>
+        <div class="prompt-ex">&ldquo;Analyze 6 months of exported product usage data to understand usage patterns,
+          classify prompts, and produce a leadership-ready report including a comparison to the prior six-month period.&rdquo;</div>
+        <div class="credits">Est. credits <b>&gt; 700</b></div>
+      </div>
+    </div>
+    <p class="video-cap">Credit ranges are illustrative planning figures from Microsoft's Cowork guidance and scale with
+      task complexity — confirm current metering in your tenant. Cowork is often 30&ndash;40% cheaper on average than
+      running the equivalent as a heavier autonomous job.</p>
+  </div>
+</section>
+
+<!-- what it can do + skills -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">What Cowork does</p>
+      <h2>Acts across Microsoft 365 — via skills</h2>
+      <p>Cowork loads specialized <strong>skills</strong> as it works (Word, Excel, PowerPoint, PDF, Email, Calendar,
+        Meetings, Daily Briefing, Enterprise Search, Deep Research, and more). You can add your own custom skills and
+        extend it with plugins from the Microsoft 365 App Store.</p>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="feat"><div class="fx">&#9993;</div><div><h4>Communication</h4><p>Draft &amp; send email, post in Teams channels/chats, send HTML newsletters, manage your inbox.</p></div></div>
+        <div class="feat"><div class="fx">&#128196;</div><div><h4>Documents &amp; files</h4><p>Create and edit Word, Excel, PowerPoint and PDFs; browse Work IQ; organize SharePoint/OneDrive.</p></div></div>
+        <div class="feat"><div class="fx">&#128197;</div><div><h4>Calendar &amp; meetings</h4><p>Schedule and manage your calendar, resolve conflicts, prep meeting intelligence and daily briefings.</p></div></div>
+      </div>
+      <div class="card">
+        <div class="feat"><div class="fx">&#128270;</div><div><h4>Research &amp; search</h4><p>Search across your org and run deep research that synthesizes many sources into comprehensive reports.</p></div></div>
+        <div class="feat"><div class="fx">&#9203;</div><div><h4>Automation</h4><p>Run prompts on a schedule (&ldquo;every morning at 9 AM&rdquo;) or on event triggers (a new email or Teams message).</p></div></div>
+        <div class="feat"><div class="fx">&#129513;</div><div><h4>Extend</h4><p>Create up to 50 custom skills stored in OneDrive; install plugins for specialized expertise and connectors.</p></div></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Cowork scheduled prompts vs. Microsoft Scout</h4>
+      <p>Cowork can run recurring prompts, which covers many &ldquo;do this every week&rdquo; needs. Choose
+        <a href="scout.html">Microsoft Scout</a> instead when you want a persistent agent with its <em>own identity</em>
+        that runs habits and automations continuously, coordinates your day, and lets others interact with it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- video -->
+<section class="section alt" id="video">
+  <div class="container">
+    <div class="grid cols-2" style="align-items:start">
+      <div>
+        <p class="eyebrow">See it in action</p>
+        <h2>Get started with Cowork</h2>
+        <p>Open Cowork from the toggle next to Chat in Microsoft 365 Copilot, describe your task, and follow along as it
+          works step by step — approving actions as they come up and reviewing the files it produces in the side panel.</p>
+        <p class="mb-0"><a class="btn btn-outline" href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/get-started-with-cowork" target="_blank" rel="noopener">Read the full guide &rarr;</a></p>
+      </div>
+      <a class="video-card" href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/get-started-with-cowork" target="_blank" rel="noopener">
+        <div class="vc-inner">
+          <div>
+            <div class="vc-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vc-eyebrow">Watch &middot; Official Microsoft video</div>
+            <h3>Get started with Copilot Cowork</h3>
+            <p>Walk through starting a task, approving actions, and reviewing the artifacts Cowork creates.</p>
+          </div>
+          <div class="vc-src">support.microsoft.com &rarr;</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/nav.js?v=1"></script>
+</body>
+</html>

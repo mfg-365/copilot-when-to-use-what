@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When to Use What · Copilot — Custom Agents</title>
+<meta name="description" content="When to consider a custom agent (Agent Builder or Copilot Studio) instead of Chat, Cowork or Scout — the signals that a task should become a reusable, governed capability.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css?v=1">
+</head>
+<body>
+<div id="site-nav"></div>
+
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Surface &middot; Reusable, governed capability</p>
+    <h1>Custom Agents</h1>
+    <p>Agent Builder and Copilot Studio let you turn a repeatable task into a shared, governed capability with its own
+      knowledge, actions and guardrails. This guide covers <strong>when to consider one</strong> — not how to build it.
+      We'll tackle the build side separately.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#signals">The signals to watch for</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="callout warn">
+      <h4>Scope of this page</h4>
+      <p>This is a <em>when-to-use</em> pointer, not a build guide. The goal is to recognize the moment a task has
+        outgrown ad-hoc Chat / Cowork / Scout use and deserves to become a first-class agent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- signals -->
+<section class="section alt" id="signals">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Decision signals</p>
+      <h2>Consider a custom agent when several of these are true</h2>
+      <p>One signal alone rarely justifies building an agent. When they stack up, the recurring cost of re-prompting
+        outweighs the one-time cost of packaging it.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card"><div class="icon">&#128260;</div><h3>Repeatable</h3><p>You run essentially the <em>same</em> task over and over, with the same shape and sources.</p></div>
+      <div class="card"><div class="icon">&#128101;</div><h3>Reused by many</h3><p>Teammates need the same capability — not just you, once.</p></div>
+      <div class="card"><div class="icon">&#128218;</div><h3>Fixed knowledge</h3><p>It should always ground on specific, curated sources rather than whatever you paste in.</p></div>
+      <div class="card"><div class="icon">&#9881;</div><h3>Defined actions</h3><p>It performs a known set of actions or connects to specific systems every time.</p></div>
+      <div class="card"><div class="icon">&#128272;</div><h3>Governance &amp; guardrails</h3><p>You need consistent permissions, boundaries, and auditability — not one-off judgment.</p></div>
+      <div class="card"><div class="icon">&#127991;</div><h3>Consistent output</h3><p>The result must follow a standard format or policy every time, for everyone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- stay vs graduate -->
+<section class="section">
+  <div class="container">
+    <div class="wu">
+      <div class="box good">
+        <h4>&#9989; Graduate to a custom agent</h4>
+        <ul>
+          <li>A weekly Cowork prompt your whole team copy-pastes &rarr; make it a shared agent</li>
+          <li>The same Researcher/Analyst scenario against the same sources, repeatedly</li>
+          <li>A support or intake workflow that must behave identically for every user</li>
+          <li>A process that needs governed connectors, permissions and audit</li>
+        </ul>
+      </div>
+      <div class="box avoid">
+        <h4>&#9940; Stay with Chat / Cowork / Scout</h4>
+        <ul>
+          <li>The task is exploratory, one-off, or changes every time &rarr; <a href="chat.html">Chat</a></li>
+          <li>You need it now and won't repeat it &rarr; <a href="cowork.html">Cowork</a></li>
+          <li>It's <em>your</em> personal always-on operator &rarr; <a href="scout.html">Scout</a></li>
+          <li>You haven't validated the workflow manually yet — prove it in Cowork first</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <h4>A healthy path</h4>
+      <p>Prototype the workflow in <a href="chat.html">Chat</a> or <a href="cowork.html">Cowork</a> first. Once it's
+        proven and you're repeating it — <em>then</em> package it as a custom agent so the knowledge, actions and
+        guardrails are captured once and reused by everyone.</p>
+    </div>
+
+    <div class="callout">
+      <h4>Also on the menu: pre-built agents</h4>
+      <p>Before building, check whether Microsoft already ships an agent for the job — e.g. pre-built agents in
+        Dynamics 365 (sales, contact center, customer service, Business Central). If one fits, adopt it instead of
+        building from scratch.</p>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/nav.js?v=1"></script>
+</body>
+</html>
