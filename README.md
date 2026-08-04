@@ -31,6 +31,52 @@ Static HTML + one shared `assets/styles.css` and `assets/nav.js` (injects the he
 footer on every page). No build step. Branding matches the mfg-365.com family: Copilot iridescent
 gradient, navy hero/footer, Fluent/Segoe type, and the shared gradient "seed" glyph.
 
+## The Advisor (hybrid recommender)
+
+An embedded prompt box on the Overview page recommends a surface from a plain-language task.
+
+**Phase 1 — deterministic (live, always on).** `assets/advisor.js` scores the input against a
+weighted signal table across the five surfaces, plus a Chat sub-mode hint. No backend, no API
+keys, nothing leaves the browser. This is also the permanent fallback.
+
+Test it:
+
+```powershell
+node tools/test-advisor.js        # representative cases
+node tools/test-advisor-hard.js   # adversarial phrasings
+```
+
+**Phase 2 — optional LLM enhancement.** If an endpoint is configured, the result is sent to a
+serverless function that holds the model key **server-side** and returns a richer explanation.
+Any failure (network, rate limit, cold start, bad JSON) silently degrades to the Phase 1 answer.
+
+Enable by setting this **before** `advisor.js` loads:
+
+```html
+<script>window.ADVISOR_CONFIG = { endpoint: "https://<func>.azurewebsites.net/api/advise" };</script>
+```
+
+Function contract:
+
+```jsonc
+// POST request
+{ "task": "prep for my customer meeting…", "suggested": "cowork", "confidence": "high" }
+// 200 response
+{ "surface": "cowork", "explanation": "one short paragraph" }
+```
+
+Implementation notes (matching what already works in this tenant):
+- Use a **standalone Azure Function App**, not SWA managed functions — those failed with
+  "content distribution" errors on a sibling project.
+- Lock **CORS** to the production origin only.
+- No RAG needed: the whole framework fits in the system prompt. Constrain output to the five
+  surface IDs (`chat`, `cowork`, `code`, `scout`, `agent`), cap output tokens, and rate-limit by IP.
+
+## Sister sites
+
+Links marked `data-mfg-link="agents"` resolve automatically: `/agents/` on mfg-365.com,
+otherwise the GitHub Pages URL. See `resolveSisterLinks()` in `assets/nav.js`.
+
 ## Local preview
 
 ```powershell

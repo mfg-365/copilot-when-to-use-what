@@ -6,7 +6,7 @@
 <title>When to Use What · Copilot — Overview</title>
 <meta name="description" content="Choose the right Microsoft Copilot surface for the job: Copilot Chat, Cowork, Code, Microsoft Scout, and custom agents — mapped on one autonomy spectrum.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=1">
+<link rel="stylesheet" href="assets/styles.css?v=5">
 </head>
 <body>
 <div id="site-nav"></div>
@@ -21,8 +21,8 @@
         spectrum — from a quick, you-in-the-loop chat to an always-on agent that works while you sleep —
         so you can pick the right tool for the task in seconds.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="decision-tree.html">Start with the decision tree &rarr;</a>
-        <a class="btn btn-ghost" href="compare.html">See the full comparison</a>
+        <a class="btn btn-primary" href="#advisor">Get a recommendation &rarr;</a>
+        <a class="btn btn-ghost" href="decision-tree.html">Walk the decision tree</a>
       </div>
     </div>
     <div class="hero-art">
@@ -36,6 +36,38 @@
         <circle cx="94" cy="90" r="12" fill="#fff" opacity=".9"/>
         <circle cx="27" cy="88" r="8" fill="#12B8A6" opacity=".85"/>
       </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- ADVISOR ---------------- -->
+<section class="section" id="advisor">
+  <div class="container">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto">
+      <p class="eyebrow">Not sure where to start?</p>
+      <h2>Describe your task — get a recommendation</h2>
+      <p>Type what you're trying to do in plain language. You'll get a suggested surface, why it fits,
+        and what to consider instead.</p>
+    </div>
+
+    <div class="advisor">
+      <div class="advisor-box">
+        <form id="advisorForm" class="advisor-row" autocomplete="off">
+          <input id="advisorInput" type="text" aria-label="Describe what you're trying to do"
+                 placeholder="e.g. Prep for my customer meeting with a briefing doc and a deck&hellip;">
+          <button class="btn btn-primary" type="submit">Recommend &rarr;</button>
+        </form>
+        <div class="advisor-ex">
+          <span class="lbl">Try</span>
+          <button class="ex-chip" type="button" data-advisor-example="Summarize what I missed in yesterday's meetings">Catch up on meetings</button>
+          <button class="ex-chip" type="button" data-advisor-example="Prep for my customer meeting: pull emails, calendar and recent files into a briefing doc, an Excel overview and a client-ready deck">Prep a customer meeting</button>
+          <button class="ex-chip" type="button" data-advisor-example="Send me a status summary every Monday morning automatically while I'm away">Run every Monday</button>
+          <button class="ex-chip" type="button" data-advisor-example="Build a small web app that tracks our project intake">Build an app</button>
+          <button class="ex-chip" type="button" data-advisor-example="My whole team needs to run the same onboarding workflow the same way every time with approved sources">A tool for my team</button>
+        </div>
+        <div id="advisorOut" hidden></div>
+      </div>
+      <p class="video-cap center" style="margin-top:12px">Runs entirely in your browser — nothing you type leaves this page.</p>
     </div>
   </div>
 </section>
@@ -211,6 +243,7 @@
 </section>
 
 <div id="site-footer"></div>
-<script src="assets/nav.js?v=2"></script>
+<script src="assets/nav.js?v=3"></script>
+<script src="assets/advisor.js?v=1"></script>
 </body>
 </html>

@@ -48,6 +48,7 @@
         '<span style="color:#fff;font-weight:700">When to Use What &middot; Copilot</span></div>' +
         '<p style="color:rgba(255,255,255,.7);margin:.6rem 0 0;max-width:44ch">Pick the right Copilot surface for the job — from a quick chat to an always-on agent.</p></div>' +
       '<div><strong style="color:#fff">Learn more</strong><br>' +
+        '<a data-mfg-link="agents" href="https://mfg-365.github.io/ms-agents-site/">Microsoft 1st Party Agents catalog</a><br>' +
         '<a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/" target="_blank" rel="noopener">Copilot Cowork on Learn</a><br>' +
         '<a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/how-copilot-chat-works-with-and-without-a-microsoft-365-copilot-license" target="_blank" rel="noopener">Copilot Chat with / without a license</a><br>' +
         '<a href="https://adoption.microsoft.com/en-us/copilot/" target="_blank" rel="noopener">Copilot Adoption Hub</a></div>' +
@@ -62,7 +63,29 @@
     var f = document.getElementById("site-footer");
     if (n) n.innerHTML = '<div class="ribbon"></div>' + navHTML;
     if (f) f.innerHTML = footHTML;
+    resolveSisterLinks();
   }
+
+  // Sister-site links resolve differently depending on where we're hosted:
+  //  - on mfg-365.com the apps are sub-folders of one Static Web App
+  //  - anywhere else (GitHub Pages, localhost) fall back to the Pages URL
+  function resolveSisterLinks() {
+    var onProd = /(^|\.)mfg-365\.com$/i.test(location.hostname);
+    var map = {
+      agents: onProd ? "/agents/" : "https://mfg-365.github.io/ms-agents-site/",
+      adoption: onProd ? "/adoption/" : "https://mfg-365.github.io/copilot-adoption-site/",
+      announcements: onProd ? "/" : "https://mfg-365.github.io/copilot-announcements-site/"
+    };
+    var nodes = document.querySelectorAll("[data-mfg-link]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-mfg-link");
+      if (map[key]) {
+        nodes[i].setAttribute("href", map[key]);
+        if (!onProd) { nodes[i].setAttribute("target", "_blank"); nodes[i].setAttribute("rel", "noopener"); }
+      }
+    }
+  }
+  window.MFG_RESOLVE_LINKS = resolveSisterLinks;
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
   else mount();
 })();
