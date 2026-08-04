@@ -19,7 +19,7 @@ helps you pick between:
 | `index.html` | Overview: the spectrum, at-a-glance matrix, Cowork/Code/Autopilots comparison |
 | `decision-tree.html` | Ordered decision tree + quick chooser |
 | `chat.html` | Copilot Chat modes, first-party agents, with/without a license |
-| `cowork.html` | Cowork task tiers, credits, skills, automation |
+| `cowork.html` | Cowork task tiers, skills, automation |
 | `code.html` | Copilot Code |
 | `scout.html` | Microsoft Scout |
 | `custom-agents.html` | When to consider a custom agent |
