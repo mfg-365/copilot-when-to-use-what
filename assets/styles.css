@@ -230,6 +230,20 @@ table.matrix tr:last-child td, table.matrix tr:last-child th { border-bottom: no
 .flow-start .txt strong { display: block; font-size: 1.05rem; color: var(--ink); }
 .flow-start .txt span { font-size: .85rem; color: var(--muted); }
 
+/* home-base Chat tile */
+.flow-home { display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: center; border-radius: 18px; padding: 20px 22px;
+  color: #fff; background: linear-gradient(120deg,#1E88E5,#2F6BFF); box-shadow: var(--shadow-md); margin-bottom: 8px; text-decoration: none; }
+.flow-home:hover { text-decoration: none; box-shadow: var(--shadow-lg); }
+.flow-home .hb-em { width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center; background: rgba(255,255,255,.18); font-size: 1.9rem; }
+.flow-home .hb-tag { display: inline-block; font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(255,255,255,.22); padding: 3px 10px; border-radius: 999px; margin-bottom: 6px; }
+.flow-home h3 { color: #fff; margin: 0 0 .2em; font-size: 1.3rem; }
+.flow-home p { color: rgba(255,255,255,.92); margin: 0; font-size: .9rem; max-width: 62ch; }
+.flow-step-head { display: flex; align-items: center; gap: 12px; margin: 22px 0 6px; padding-left: 4px; }
+.flow-step-head .line { flex: 1; height: 2px; background: var(--line); }
+.flow-step-head strong { font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.gate-no.stay { color: var(--brand-blue); }
+
 .gate { position: relative; display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; padding-bottom: 24px; }
 .gate::before { content: ""; position: absolute; left: 26px; top: -4px; bottom: 0; width: 4px; border-radius: 4px;
   background: linear-gradient(180deg,#12B8A6,#2F6BFF,#7C5CFC,#2F9E44); opacity: .28; }
