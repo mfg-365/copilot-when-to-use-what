@@ -262,8 +262,21 @@
     var input = document.getElementById("advisorInput");
     var out = document.getElementById("advisorOut");
 
+    // Grow the textarea to fit its content, up to the CSS max-height.
+    // scrollHeight excludes borders, but box-sizing is border-box, so add them
+    // back or the element ends up ~2px short and shows a phantom scrollbar.
+    var MAXH = 220;
+    function autosize() {
+      var cs = window.getComputedStyle(input);
+      var borders = (parseFloat(cs.borderTopWidth) || 0) + (parseFloat(cs.borderBottomWidth) || 0);
+      input.style.height = "auto";
+      var want = input.scrollHeight + borders;
+      input.style.height = Math.min(want, MAXH) + "px";
+      input.style.overflowY = want > MAXH ? "auto" : "hidden";
+    }
+
     function run(text) {
-      if (!text || !text.trim()) { out.innerHTML = ""; return; }
+      if (!text || !text.trim()) { out.innerHTML = ""; out.hidden = true; return; }
       var res = recommend(text);
       out.innerHTML = render(res);
       out.hidden = false;
@@ -271,15 +284,28 @@
       out.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
+    input.addEventListener("input", autosize);
+
+    // Enter submits; Shift+Enter inserts a newline.
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        run(input.value);
+      }
+    });
+
     form.addEventListener("submit", function (e) { e.preventDefault(); run(input.value); });
 
     var chips = document.querySelectorAll("[data-advisor-example]");
     for (var i = 0; i < chips.length; i++) {
       chips[i].addEventListener("click", function () {
         input.value = this.getAttribute("data-advisor-example");
+        autosize();
         run(input.value);
       });
     }
+
+    autosize();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

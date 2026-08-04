@@ -6,7 +6,7 @@
 <title>When to Use What · Copilot — Overview</title>
 <meta name="description" content="Choose the right Microsoft Copilot surface for the job: Copilot Chat, Cowork, Code, Microsoft Scout, and custom agents — mapped on one autonomy spectrum.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=5">
+<link rel="stylesheet" href="assets/styles.css?v=7">
 </head>
 <body>
 <div id="site-nav"></div>
@@ -53,8 +53,8 @@
     <div class="advisor">
       <div class="advisor-box">
         <form id="advisorForm" class="advisor-row" autocomplete="off">
-          <input id="advisorInput" type="text" aria-label="Describe what you're trying to do"
-                 placeholder="e.g. Prep for my customer meeting with a briefing doc and a deck&hellip;">
+          <textarea id="advisorInput" rows="1" aria-label="Describe what you're trying to do"
+                    placeholder="e.g. Prep for my customer meeting: pull emails, calendar and recent files into a briefing doc, an Excel overview and a client-ready deck&hellip;"></textarea>
           <button class="btn btn-primary" type="submit">Recommend &rarr;</button>
         </form>
         <div class="advisor-ex">
@@ -67,7 +67,8 @@
         </div>
         <div id="advisorOut" hidden></div>
       </div>
-      <p class="video-cap center" style="margin-top:12px">Runs entirely in your browser — nothing you type leaves this page.</p>
+      <p class="advisor-kbd center"><kbd>Enter</kbd> to get a recommendation &middot; <kbd>Shift</kbd>+<kbd>Enter</kbd> for a new line</p>
+      <p class="video-cap center" style="margin-top:6px">Runs entirely in your browser — nothing you type leaves this page.</p>
     </div>
   </div>
 </section>
@@ -244,6 +245,6 @@
 
 <div id="site-footer"></div>
 <script src="assets/nav.js?v=3"></script>
-<script src="assets/advisor.js?v=1"></script>
+<script src="assets/advisor.js?v=3"></script>
 </body>
 </html>

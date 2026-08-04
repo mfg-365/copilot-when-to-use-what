@@ -317,14 +317,19 @@ table.matrix tr:last-child td, table.matrix tr:last-child th { border-bottom: no
 /* ---------- advisor ---------- */
 .advisor { max-width: 860px; margin: 0 auto; }
 .advisor-box { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow-md); }
-.advisor-row { display: flex; gap: 10px; }
-.advisor-row input {
-  flex: 1; font-family: inherit; font-size: 1rem; color: var(--ink); background: #f7f9ff;
-  border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; outline: none; transition: border-color .15s, box-shadow .15s;
+.advisor-row { display: flex; gap: 10px; align-items: flex-end; }
+.advisor-row textarea {
+  flex: 1; font-family: inherit; font-size: 1rem; line-height: 1.5; color: var(--ink); background: #f7f9ff;
+  border: 1px solid var(--line); border-radius: 12px; padding: 13px 16px; outline: none;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+  resize: none; overflow-y: hidden; min-height: 50px; max-height: 220px; display: block;
 }
-.advisor-row input::placeholder { color: #9aa2c4; }
-.advisor-row input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(124,92,252,.15); background: #fff; }
-.advisor-row button { white-space: nowrap; }
+.advisor-row textarea::placeholder { color: #9aa2c4; }
+.advisor-row textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(124,92,252,.15); background: #fff; }
+.advisor-row button { white-space: nowrap; flex: 0 0 auto; height: 50px; }
+.advisor-kbd { font-size: .75rem; color: var(--muted); margin: 8px 0 0; }
+.advisor-kbd kbd { font-family: inherit; font-size: .72rem; background: #eef1fb; border: 1px solid var(--line);
+  border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; color: var(--ink-2); }
 .advisor-ex { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center; }
 .advisor-ex .lbl { font-size: .78rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .ex-chip {
