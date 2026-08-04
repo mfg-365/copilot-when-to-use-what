@@ -52,7 +52,7 @@
         '<a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/how-copilot-chat-works-with-and-without-a-microsoft-365-copilot-license" target="_blank" rel="noopener">Copilot Chat with / without a license</a><br>' +
         '<a href="https://adoption.microsoft.com/en-us/copilot/" target="_blank" rel="noopener">Copilot Adoption Hub</a></div>' +
       "</div>" +
-      '<p class="disclaimer">An internal decision aid for choosing among Microsoft Copilot surfaces. ' +
+      '<p class="disclaimer">A decision aid for choosing among Microsoft Copilot surfaces. ' +
       'Product capabilities, naming, pricing and availability change frequently &mdash; always confirm against current Microsoft documentation. ' +
       'Not an official Microsoft product page. Part of the mfg-365.com site collection.</p>' +
     "</div></footer>";
