@@ -6,7 +6,7 @@
 <title>When to Use What · Copilot — Decision Tree</title>
 <meta name="description" content="A simple decision tree for choosing a Microsoft Copilot surface: Chat, Cowork, Code, Microsoft Scout, or a custom agent.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=1">
+<link rel="stylesheet" href="assets/styles.css?v=3">
 </head>
 <body>
 <div id="site-nav"></div>
@@ -23,71 +23,87 @@
 <section class="section">
   <div class="container">
 
-    <!-- linear decision flow -->
-    <div class="tree">
+    <!-- surface key -->
+    <div class="surface-key">
+      <span class="sk sk-chat"><i></i> Copilot Chat</span>
+      <span class="sk sk-cowork"><i></i> Cowork</span>
+      <span class="sk sk-code"><i></i> Code</span>
+      <span class="sk sk-scout"><i></i> Microsoft Scout</span>
+      <span class="sk sk-agent"><i></i> Custom Agent</span>
+    </div>
 
-      <div class="tnode">
-        <div class="q">1 &nbsp;Am I building or changing software?</div>
-        <div class="hint">Writing code, automations-as-code, apps, scripts, data pipelines.</div>
-        <div class="tbranch">
-          <div class="tyes" style="flex:0 0 auto">
-            <span class="tlabel yes">Yes</span>
-            <a class="tout out-code" href="code.html"><span class="em">&#128187;</span><span><strong>Copilot Code</strong><span>Natural-language software building, local or cloud</span></span></a>
+    <!-- gated timeline infographic -->
+    <div class="flow">
+
+      <div class="flow-start">
+        <div class="badge">&#127793;</div>
+        <div class="txt"><strong>Start with your task</strong><span>Answer each gate top&ndash;down &middot; take the first &ldquo;yes&rdquo;</span></div>
+      </div>
+
+      <div class="gate">
+        <div class="gnum">1</div>
+        <div class="gate-body">
+          <div class="gate-q">Am I building or changing software?</div>
+          <div class="gate-hint">Writing code, automations-as-code, apps, scripts, data pipelines.</div>
+          <div class="gate-yes">
+            <span class="yes-badge">YES</span>
+            <a class="outcome out-code" href="code.html"><span class="em">&#128187;</span><span class="oc"><strong>Copilot Code</strong><span>Natural-language software building, local or cloud</span></span><span class="arw">&rarr;</span></a>
           </div>
-          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+          <div class="gate-no">No &darr; next gate</div>
         </div>
       </div>
 
-      <div class="tnode">
-        <div class="q">2 &nbsp;Should it run on its own — on a schedule, or always-on to manage my day?</div>
-        <div class="hint">Runs while you're away, reacts to events (new email/message), coordinates across time, &ldquo;multi-player&rdquo; so others can interact with it.</div>
-        <div class="tbranch">
-          <div class="tyes" style="flex:0 0 auto">
-            <span class="tlabel yes">Yes</span>
-            <a class="tout out-scout" href="scout.html"><span class="em">&#129302;</span><span><strong>Microsoft Scout</strong><span>Always-on cloud agent + desktop companion</span></span></a>
+      <div class="gate">
+        <div class="gnum">2</div>
+        <div class="gate-body">
+          <div class="gate-q">Should it run on its own — scheduled, or always-on to manage my day?</div>
+          <div class="gate-hint">Runs while you're away, reacts to events, coordinates across time, &ldquo;multi-player&rdquo; so others can interact with it.</div>
+          <div class="gate-yes">
+            <span class="yes-badge">YES</span>
+            <a class="outcome out-scout" href="scout.html"><span class="em">&#129302;</span><span class="oc"><strong>Microsoft Scout</strong><span>Always-on cloud agent + desktop companion</span></span><span class="arw">&rarr;</span></a>
           </div>
-          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+          <div class="gate-no">No &darr; next gate</div>
         </div>
       </div>
 
-      <div class="tnode">
-        <div class="q">3 &nbsp;Is this a repeatable capability many people will reuse — needing set knowledge, actions &amp; governance?</div>
-        <div class="hint">The same workflow again and again, shared with a team, with defined sources, guardrails and permissions.</div>
-        <div class="tbranch">
-          <div class="tyes" style="flex:0 0 auto">
-            <span class="tlabel yes">Yes</span>
-            <a class="tout out-agent" href="custom-agents.html"><span class="em">&#129513;</span><span><strong>Consider a Custom Agent</strong><span>Agent Builder or Copilot Studio</span></span></a>
+      <div class="gate">
+        <div class="gnum">3</div>
+        <div class="gate-body">
+          <div class="gate-q">Is this a repeatable capability many people will reuse — with set knowledge, actions &amp; governance?</div>
+          <div class="gate-hint">The same workflow again and again, shared with a team, with defined sources, guardrails and permissions.</div>
+          <div class="gate-yes">
+            <span class="yes-badge">YES</span>
+            <a class="outcome out-agent" href="custom-agents.html"><span class="em">&#129513;</span><span class="oc"><strong>Consider a Custom Agent</strong><span>Agent Builder or Copilot Studio</span></span><span class="arw">&rarr;</span></a>
           </div>
-          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+          <div class="gate-no">No &darr; next gate</div>
         </div>
       </div>
 
-      <div class="tnode">
-        <div class="q">4 &nbsp;Does one task need several artifacts, or multiple steps across M365 systems?</div>
-        <div class="hint">e.g. &ldquo;pull emails + calendar + files into a briefing doc, an Excel overview, and a client-ready deck.&rdquo; Actions you approve (send, post, schedule).</div>
-        <div class="tbranch">
-          <div class="tyes" style="flex:0 0 auto">
-            <span class="tlabel yes">Yes</span>
-            <a class="tout out-cowork" href="cowork.html"><span class="em">&#129309;</span><span><strong>Copilot Cowork</strong><span>Multi-artifact, multi-step, you approve actions</span></span></a>
+      <div class="gate">
+        <div class="gnum">4</div>
+        <div class="gate-body">
+          <div class="gate-q">Does one task need several artifacts, or multiple steps across M365 systems?</div>
+          <div class="gate-hint">e.g. &ldquo;pull emails + calendar + files into a briefing doc, an Excel overview, and a client-ready deck.&rdquo; Actions you approve.</div>
+          <div class="gate-yes">
+            <span class="yes-badge">YES</span>
+            <a class="outcome out-cowork" href="cowork.html"><span class="em">&#129309;</span><span class="oc"><strong>Copilot Cowork</strong><span>Multi-artifact, multi-step, you approve actions</span></span><span class="arw">&rarr;</span></a>
           </div>
-          <div class="tyes"><span class="tlabel no">No &rarr; keep going</span></div>
+          <div class="gate-no">No &darr; the default</div>
         </div>
       </div>
 
-      <div class="tnode">
-        <div class="q">5 &nbsp;Otherwise — find, summarize, draft or analyze one thing, right now.</div>
-        <div class="hint">The default. Fast, you-in-the-loop, grounded in the web and your Work IQ.</div>
-        <div class="tbranch">
-          <div class="tyes">
-            <span class="tlabel yes">Use this</span>
-            <a class="tout out-chat" href="chat.html"><span class="em">&#128172;</span><span><strong>M365 Copilot Chat</strong><span>Then pick a mode &darr;</span></span></a>
-          </div>
+      <div class="gate final">
+        <div class="gnum">5</div>
+        <div class="gate-body">
+          <div class="lead-in">Otherwise — find, summarize, draft or analyze one thing, right now.</div>
+          <div class="gate-hint">The default. Fast, you-in-the-loop, grounded in the web and your Work IQ.</div>
+          <a class="outcome out-chat big" href="chat.html"><span class="em">&#128172;</span><span class="oc"><strong>M365 Copilot Chat</strong><span>Then pick a mode &mdash; Search &middot; Notebook &middot; Create &middot; Agents</span></span><span class="arw">&rarr;</span></a>
         </div>
       </div>
 
     </div>
 
-    <div class="callout tip" style="max-width:760px;margin:26px auto 0">
+    <div class="callout tip" style="max-width:840px;margin:30px auto 0">
       <h4>Inside Chat — which mode?</h4>
       <p><strong>Search</strong> for a company/web fact &middot; <strong>Notebook</strong> to ground a reusable working set &middot;
         <strong>Create</strong> for images &amp; visual content &middot; <strong>Researcher</strong> agent for deep multi-source research &middot;
