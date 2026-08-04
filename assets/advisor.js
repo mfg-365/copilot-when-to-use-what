@@ -256,16 +256,52 @@
   }
 
   /* ------------------------------------------------------------------ mount */
+  var DIALOG_HTML =
+    '<dialog id="advisorDialog" class="adv-dialog" aria-labelledby="advisorTitle">' +
+      '<div class="adv-dialog-head">' +
+        '<div>' +
+          '<p class="eyebrow mb-0">Not sure where to start?</p>' +
+          '<h2 id="advisorTitle">Describe your task</h2>' +
+        '</div>' +
+        '<button type="button" class="adv-close" data-advisor-close aria-label="Close">&times;</button>' +
+      '</div>' +
+      '<div class="adv-dialog-body">' +
+        '<form id="advisorForm" class="advisor-row" autocomplete="off">' +
+          '<textarea id="advisorInput" rows="1" aria-label="Describe what you\'re trying to do" ' +
+            'placeholder="e.g. Prep for my customer meeting: pull emails, calendar and recent files into a briefing doc, an Excel overview and a client-ready deck&hellip;"></textarea>' +
+          '<button class="btn btn-primary" type="submit">Recommend &rarr;</button>' +
+        '</form>' +
+        '<div class="advisor-ex">' +
+          '<span class="lbl">Try</span>' +
+          '<button class="ex-chip" type="button" data-advisor-example="Summarize what I missed in yesterday\'s meetings">Catch up on meetings</button>' +
+          '<button class="ex-chip" type="button" data-advisor-example="Prep for my customer meeting: pull emails, calendar and recent files into a briefing doc, an Excel overview and a client-ready deck">Prep a customer meeting</button>' +
+          '<button class="ex-chip" type="button" data-advisor-example="Send me a status summary every Monday morning automatically while I\'m away">Run every Monday</button>' +
+          '<button class="ex-chip" type="button" data-advisor-example="Build a small web app that tracks our project intake">Build an app</button>' +
+          '<button class="ex-chip" type="button" data-advisor-example="My whole team needs to run the same onboarding workflow the same way every time with approved sources">A tool for my team</button>' +
+        '</div>' +
+        '<div id="advisorOut" hidden></div>' +
+      '</div>' +
+      '<div class="adv-dialog-foot">' +
+        '<span><kbd>Enter</kbd> to recommend &middot; <kbd>Shift</kbd>+<kbd>Enter</kbd> newline &middot; <kbd>Esc</kbd> to close</span>' +
+        '<span class="adv-privacy">Runs in your browser</span>' +
+      '</div>' +
+    '</dialog>';
+
   function init() {
+    // Inject the dialog once, on every page.
+    if (!document.getElementById("advisorDialog")) {
+      document.body.insertAdjacentHTML("beforeend", DIALOG_HTML);
+    }
+    var dlg = document.getElementById("advisorDialog");
     var form = document.getElementById("advisorForm");
-    if (!form) return;
+    if (!dlg || !form) return;
     var input = document.getElementById("advisorInput");
     var out = document.getElementById("advisorOut");
 
     // Grow the textarea to fit its content, up to the CSS max-height.
     // scrollHeight excludes borders, but box-sizing is border-box, so add them
     // back or the element ends up ~2px short and shows a phantom scrollbar.
-    var MAXH = 220;
+    var MAXH = 200;
     function autosize() {
       var cs = window.getComputedStyle(input);
       var borders = (parseFloat(cs.borderTopWidth) || 0) + (parseFloat(cs.borderBottomWidth) || 0);
@@ -281,22 +317,30 @@
       out.innerHTML = render(res);
       out.hidden = false;
       enhance(text, res, out);
-      out.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
+    function open(prefill) {
+      if (typeof prefill === "string" && prefill) input.value = prefill;
+      if (dlg.showModal) { if (!dlg.open) dlg.showModal(); }
+      else dlg.setAttribute("open", "");    // very old browsers
+      autosize();
+      setTimeout(function () { input.focus(); }, 30);
+    }
+    function close() { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+
     input.addEventListener("input", autosize);
-
-    // Enter submits; Shift+Enter inserts a newline.
     input.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        run(input.value);
-      }
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); run(input.value); }
     });
-
     form.addEventListener("submit", function (e) { e.preventDefault(); run(input.value); });
 
-    var chips = document.querySelectorAll("[data-advisor-example]");
+    // Close: the X, and clicking the backdrop outside the panel.
+    dlg.addEventListener("click", function (e) {
+      if (e.target.closest("[data-advisor-close]")) { close(); return; }
+      if (e.target === dlg) close();      // native dialog backdrop click
+    });
+
+    var chips = dlg.querySelectorAll("[data-advisor-example]");
     for (var i = 0; i < chips.length; i++) {
       chips[i].addEventListener("click", function () {
         input.value = this.getAttribute("data-advisor-example");
@@ -305,6 +349,16 @@
       });
     }
 
+    // Any element on any page can open it.
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest("[data-advisor-open]");
+      if (!t) return;
+      e.preventDefault();
+      open(t.getAttribute("data-advisor-prefill"));
+    });
+
+    window.CopilotAdvisor.open = open;
+    window.CopilotAdvisor.close = close;
     autosize();
   }
 

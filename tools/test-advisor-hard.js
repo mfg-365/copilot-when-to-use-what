@@ -4,7 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const src = fs.readFileSync(path.join(__dirname, '..', 'assets', 'advisor.js'), 'utf8');
 global.window = {};
-global.document = { readyState: 'complete', getElementById: () => null, querySelectorAll: () => [], addEventListener: () => {} };
+global.document = { readyState: 'complete', body: { insertAdjacentHTML: () => {} },
+  getElementById: () => null, querySelectorAll: () => [], addEventListener: () => {} };
 eval(src);
 const A = global.window.CopilotAdvisor;
 

@@ -38,7 +38,7 @@
         '<span class="brand-text"><strong>When to Use What &middot; Copilot</strong>' +
         '<span>A Microsoft Copilot decision guide</span></span>' +
       '</a>' +
-      '<a class="header-cta" href="https://adoption.microsoft.com/en-us/copilot/" target="_blank" rel="noopener">Copilot adoption &rarr;</a>' +
+      '<a class="header-cta" href="#" data-advisor-open>&#10024; Help me choose</a>' +
     '</header>' +
     '<nav class="tabs" role="tablist" aria-label="Guide sections">' + tabs + '</nav>';
 

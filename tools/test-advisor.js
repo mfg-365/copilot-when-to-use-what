@@ -8,6 +8,7 @@ const src = fs.readFileSync(path.join(__dirname, '..', 'assets', 'advisor.js'), 
 global.window = {};
 global.document = {
   readyState: 'complete',
+  body: { insertAdjacentHTML: () => {} },
   getElementById: () => null,
   querySelectorAll: () => [],
   addEventListener: () => {}
